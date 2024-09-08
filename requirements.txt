@@ -3,3 +3,4 @@ coverage
 pytest-cov
 flake8
 memory-profiler
+matplotlib
