@@ -9,7 +9,8 @@ class Book:
         self.genre = genre
 
     def __str__(self):
-        return f"{self.title} by {self.author} ({self.year}) - {self.genre} - ${self.price}"
+        return (f"{self.title} by {self.author} ({self.year}) "
+                f"- {self.genre} - ${self.price}")
 
 
 class BookStore:
