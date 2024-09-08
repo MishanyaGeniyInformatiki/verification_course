@@ -39,10 +39,10 @@ class Customer:
 
     def checkout(self, address, delivery_time, payment_method):
         order = {
-            'address': address,
-            'delivery_time': delivery_time,
-            'payment_method': payment_method,
-            'books': self.cart.books[:]
+            "address": address,
+            "delivery_time": delivery_time,
+            "payment_method": payment_method,
+            "books": self.cart.books[:],
         }
         self.orders.append(order)
         print(f"Order checked out for {self.name}:")

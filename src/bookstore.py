@@ -37,7 +37,9 @@ class BookStore:
 
     def deliver_order(self, order):
         self.orders.append(order)
-        print(f"Order delivered to {order['address']} at {order['delivery_time']}")
+        print(
+            f"Order delivered to {order['address']} at {order['delivery_time']}"
+        )
 
     def return_book(self, book):
         self.books.append(book)
