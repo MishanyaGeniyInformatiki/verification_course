@@ -21,3 +21,11 @@ class BookStore:
     def add_book(self, book):
         self.books.append(book)
         print(f"Added {book.title} to store.")
+        
+    def list_books(self):
+        if not self.books:
+            print("No books available.")
+        else:
+            print("Available books:")
+            for book in self.books:
+                print(book)
