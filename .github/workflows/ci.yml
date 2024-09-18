@@ -28,3 +28,12 @@ jobs:
     - name: Run unit tests and collect coverage
       run: |
         pytest
+
+    - name: Run flake8 static analysis
+      run: |
+        flake8 .
+
+    - name: Run memory profiling
+      run: |
+        mprof run python src/bookstore.py
+        mprof plot
