@@ -4,7 +4,8 @@ class Cart:
         self.books = []
 
     def add_book_to_cart(self, book):
-        pass
+        self.books.append(book)
+        print(f"Added {book.title} to cart.")
 
 
 class Customer:
@@ -15,4 +16,4 @@ class Customer:
         self.orders = []
 
     def add_book_to_cart(self, book):
-        pass
+        self.cart.add_book_to_cart(book)
