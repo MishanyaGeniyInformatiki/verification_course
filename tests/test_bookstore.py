@@ -46,6 +46,24 @@ class TestBookStore(unittest.TestCase):
         self.assertIn(self.book1.title, store_books)
         self.assertIn(self.book2.title, store_books)
 
+    def test_find_book_by_id(self):
+        book = self.store.find_book_by_id(1)
+        self.assertEqual(book, self.book1)
+
+    def test_deliver_order(self):
+        order = {
+            "address": "123 Main St",
+            "delivery_time": "Tomorrow 10 AM",
+            "payment_method": "Credit Card",
+            "books": [self.book1],
+        }
+        self.store.deliver_order(order)
+        self.assertEqual(len(self.store.orders), 1)
+
+    def test_return_book(self):
+        self.store.return_book(self.book1)
+        self.assertIn(self.book1, self.store.books)
+
 
 if __name__ == "__main__":
     unittest.main()
