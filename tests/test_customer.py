@@ -60,7 +60,7 @@ class TestCustomer(unittest.TestCase):
         initial_orders_count = len(self.customer.orders)
         self.customer.return_order(0, "Courier", "Defective item")
         self.assertEqual(len(self.customer.orders), initial_orders_count)
-        
+
 
 if __name__ == "__main__":
     unittest.main()
