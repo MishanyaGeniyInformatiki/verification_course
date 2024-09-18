@@ -44,4 +44,4 @@ class BookStore:
 
     def return_book(self, book):
         self.books.append(book)
-        print(f"Returned {book.title
+        print(f"Returned {book.title} to store.")
