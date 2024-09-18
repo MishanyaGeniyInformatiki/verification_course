@@ -21,7 +21,7 @@ class BookStore:
     def add_book(self, book):
         self.books.append(book)
         print(f"Added {book.title} to store.")
-        
+
     def list_books(self):
         if not self.books:
             print("No books available.")
@@ -29,3 +29,19 @@ class BookStore:
             print("Available books:")
             for book in self.books:
                 print(book)
+
+    def find_book_by_id(self, book_id):
+        for book in self.books:
+            if book.book_id == book_id:
+                return book
+        return None
+
+    def deliver_order(self, order):
+        self.orders.append(order)
+        print(
+            f"Order delivered to {order['address']} at {order['delivery_time']}"
+        )
+
+    def return_book(self, book):
+        self.books.append(book)
+        print(f"Returned {book.title
