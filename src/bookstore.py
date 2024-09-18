@@ -14,4 +14,10 @@ class Book:
 
 
 class BookStore:
-    pass
+    def __init__(self):
+        self.books = []
+        self.orders = []
+
+    def add_book(self, book):
+        self.books.append(book)
+        print(f"Added {book.title} to store.")
