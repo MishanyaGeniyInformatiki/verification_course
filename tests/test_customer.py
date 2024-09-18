@@ -32,6 +32,34 @@ class TestCustomer(unittest.TestCase):
     def test_add_book_to_cart(self):
         self.customer.add_book_to_cart(self.book1)
         self.assertIn(self.book1, self.customer.cart.books)
+
+    def test_remove_book_from_cart(self):
+        self.customer.add_book_to_cart(self.book1)
+        self.customer.cart.remove_book_from_cart(self.book1.book_id)
+        self.assertNotIn(self.book1, self.customer.cart.books)
+
+    def test_view_cart(self):
+        self.customer.add_book_to_cart(self.book1)
+        self.customer.view_cart()
+        cart_books = [book.title for book in self.customer.cart.books]
+        self.assertIn(self.book1.title, cart_books)
+
+    def test_checkout(self):
+        self.customer.add_book_to_cart(self.book1)
+        self.customer.checkout("123 Main St", "Tomorrow 10 AM", "Credit Card")
+        self.assertEqual(len(self.customer.orders), 1)
+        self.assertEqual(len(self.customer.cart.books), 0)
+
+    def test_return_order(self):
+        self.customer.add_book_to_cart(self.book1)
+        self.customer.checkout("123 Main St", "Tomorrow 10 AM", "Credit Card")
+        self.customer.return_order(0, "Courier", "Defective item")
+        self.assertEqual(len(self.customer.orders), 0)
+
+    def test_invalid_return_order(self):
+        initial_orders_count = len(self.customer.orders)
+        self.customer.return_order(0, "Courier", "Defective item")
+        self.assertEqual(len(self.customer.orders), initial_orders_count)
         
 
 if __name__ == "__main__":
