@@ -33,7 +33,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: coverage
-        path: coverage.xml
+        path: ../verification/htmlcov/index.html
 
     - name: Run flake8 static analysis
       run: |
