@@ -30,7 +30,7 @@ jobs:
         pytest --cov=src tests/test_bookstore.py tests/test_customer.py --cov-report xml
 
     - name: Upload coverage report
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: coverage
         path: coverage.xml
