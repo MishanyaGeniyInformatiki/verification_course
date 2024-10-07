@@ -27,7 +27,7 @@ jobs:
 
     - name: Run unit tests and collect coverage
       run: |
-        pytest --cov=src tests/test_bookstore.py,tests/test_customer.py
+        pytest --cov=src tests/test_bookstore.py tests/test_customer.py
 
     - name: Run flake8 static analysis
       run: |
