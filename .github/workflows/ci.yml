@@ -29,14 +29,11 @@ jobs:
       run: |
         pytest --cov=src tests/test_bookstore.py tests/test_customer.py --cov-report xml
 
-
-    - name: Get absolute path
-      run: echo "::set-output name=html_path::$(pwd)/verification/htmlcov/index.html"
     - name: Upload coverage report
       uses: actions/upload-artifact@v4
       with:
         name: coverage
-        path: ${{ steps.Get_absolute_path.outputs.html_path }}
+        path: /home/mikhail/Projects/verification/htmlcov/index.html
 
     - name: Run flake8 static analysis
       run: |
