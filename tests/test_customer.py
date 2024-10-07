@@ -64,5 +64,6 @@ class TestCustomer(unittest.TestCase):
     def test_view_cart_empty(self):
         self.customer.view_cart()
 
+
 if __name__ == "__main__":
     unittest.main()
