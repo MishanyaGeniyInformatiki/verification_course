@@ -78,6 +78,19 @@ class TestBookStore(unittest.TestCase):
         self.store.return_book(self.book1)
         self.assertIn(self.book1, self.store.books)
 
+        # Test of returning a non-existent book
+        self.store.return_book(Book(
+            4,
+            "The Hitchhiker's Guide to the Galaxy",
+            "Douglas Adams",
+            1979,
+            12.99,
+            "Pan Books",
+            "Science Fiction"
+        ))
+        # Check that the list of books remains the same
+        self.assertEqual(len(self.store.books), 4)
+
     def test_empty_book_store(self):
         empty_store = BookStore()
         empty_store.list_books()

@@ -61,6 +61,8 @@ class TestCustomer(unittest.TestCase):
         self.customer.return_order(0, "Courier", "Defective item")
         self.assertEqual(len(self.customer.orders), initial_orders_count)
 
+    def test_view_cart_empty(self):
+        self.customer.view_cart()
 
 if __name__ == "__main__":
     unittest.main()
