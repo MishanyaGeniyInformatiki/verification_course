@@ -27,7 +27,7 @@ jobs:
 
     - name: Run unit tests and collect coverage
       run: |
-        pytest --cov=src tests/test_bookstore.py tests/test_customer.py --cov-report html
+        pytest --cov=src --cov-report=html:report_folder --cov-branch tests/test_bookstore.py tests/test_customer.py
 
     - name: Upload coverage report
       uses: actions/upload-artifact@v4
